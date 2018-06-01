@@ -25,7 +25,7 @@ get '/' do
 end
 
 
-# This is our 'logged-in' view, to be displayed after the user has
+# This is our 'logged-in' view, displaying profile.erb after the user has
 # authenticated with GitHub (this is the 'callback URL' we entered when
 # registering our OAUth Application on GitHub.com).
 get '/profile' do
