@@ -23,8 +23,10 @@ First, go ahead and clone the starter code from the [OAuth Ruby Quickstart Guide
 This repository contains 3 files we'll be working with:
 
 `server.rb` - Our Sinatra webserver
-`views/index.erb` - The webpage users will see before 'Signing in with GitHub'.
-`views/profile.erb` - The webpage users will see _after_ authenticating with GitHub OAuth. This page will display their profile photo, along with other user information.
+
+`views/index.erb` - The webpage users will see before 'Signing in with GitHub'
+
+`views/profile.erb` - The webpage users will see _after_ authenticating with GitHub OAuth. This page will display their profile photo, along with other user information
 
 _P.S._([erb](https://ruby-doc.org/stdlib-2.5.1/libdoc/erb/rdoc/ERB.html) is a Ruby templating language which allows us to build HTML pages and pass in application data to be displayed on the page)
 
