@@ -232,5 +232,3 @@ So far, we've only been accessing public data. If you'd like to access private d
 
 ### Persisting Access Tokens
 Currently, users are required to 'Sign In with GitHub' every time they visit your OAuth Application. It's possible to persist their Access Token to maintain their session as long as they're  signed into GitHub. To do that, You'll need to save their Access Token in a secure database. 
-
-TOD: Expand on these more? Thoughts?
