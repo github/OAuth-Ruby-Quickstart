@@ -16,11 +16,6 @@ To demonstrate the OAuth process, we're going to:
 3) Authenticate a user into our Sinatra app using GitHub's OAuth API
 4) Use Octokit to retrieve this user's information from GitHub
 
-### Prerequisites
-If you haven't signed up for the [GitHub Developer Program](https://developer.github.com/program) yet, you'll need to do that before starting this guide.
-
-[DEGW: Why? This hardly seems necessary—I don't think we have the right incentives set up to make this stick. Recommend removing for now.]
-
 #### OAuth 101
 TODO: Is this necessary / Appropriate? Perhaps include a high-level overview of the OAuth 'dance'?
 
