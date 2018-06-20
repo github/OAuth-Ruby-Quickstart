@@ -109,6 +109,7 @@ end
 Now that we have the Authorization Grant Code, let's use the `rest-client` gem to `POST` it back to GitHub along with our `CLIENT_ID` and `CLIENT_SECRET` in exchange for our `access_token`.
 
 The `https://github.com/login/oauth/access_token` endpoint expects the following parameters:
+
 Name | Type | Description
 -- | -- | --
 `client_id` | `string` | __Required.__ Your GitHub OAuth Application Client ID
