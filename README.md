@@ -1,8 +1,5 @@
 # GitHub OAuth Ruby Quickstart
-
-[DEGW: An intro here motivating the problem you are trying to help solve. Explain (briefly) what an OAuth app is, and why you might want to build one. Why do we need a guide? Is it hard to do? (Narrator: In fact, it is hard.) ALso give a preview of what the reader can expect to have achieved by the end of the article.]
-
-[DEGW: More thoughts. I am certainly guilty of this myself, but I am finding I dislike the word "user" to describe people who will be using your application. We should think about ways to avoid this word in our writing. It will not be easy.]
+TODO: Link to introduction to GitHub OAuth article with an overview of the OAuth process, motivations behind using GitHub OAuth vs GitHub Apps, and links to this and other guides.
 
 ## About this Quickstart Guide
 This is a quickstart guide to GitHub OAuth authentication using:
@@ -15,9 +12,6 @@ To demonstrate the OAuth process, we're going to:
 2) Register a new OAuth Application on GitHub.com
 3) Authenticate a user into our Sinatra app using GitHub's OAuth API
 4) Use Octokit to retrieve this user's information from GitHub
-
-#### OAuth 101
-TODO: Is this necessary / Appropriate? Perhaps include a high-level overview of the OAuth 'dance'?
 
 ## 1) Sinatra Webserver Setup
 First, go ahead and clone the starter code from the [OAuth Ruby Quickstart Guide](https://github.com/github/OAuth-Ruby-Quickstart) repository.
@@ -109,16 +103,14 @@ end
 
 Now that we have the authorization grant code, let's use `rest-client` to `POST` it back to GitHub along with our `CLIENT_ID` and `CLIENT_SECRET` in exchange for our `access_token`.
 
-[DEGW: Why doesn't octokit support this? That seems a little sad. Although I suppose the reason is because it's redundant if you're using something like `omniauth`.]
-
 The `https://github.com/login/oauth/access_token` endpoint expects the following parameters:
+
 Name | Type | Description
 -- | -- | --
 `client_id` | `string` | __Required.__ Your GitHub OAuth Application Client ID
 `client_secret` | `string` | __Required.__ Your GitHub OAuth Application Client Secret
 `code` | `string` | __Required.__ The authorization grant code returned after Application authorization
 
-[DEGW: I like this table format. Can we reuse this in other parts of this article too? Other quickstarts?]
 
 Let's also use the request header `:accept` to let the API know that we'd like a `JSON` formatted response.
 
@@ -143,22 +135,13 @@ end
 The API's response to our `POST` request will include the access token in a field called `access_token` in the `response` variable. Now we just need to parse out the access token.
 
 ``` ruby
-get '/profile' do
-
-    ...
-    [DEGW: I am adding ellipses here to highlight that the lines below are the ones we are interested in, but I don't know if this is just as confusing…]
-    
-
     #Parse access_token from JSON response
     access_token = JSON.parse(response)['access_token']
-        
-    erb :profile
-end
 ```
 
 ## 4) Use Octokit to Access User Data
 
-Now that we finally have our access token, we can start acessing user data via the GitHub API. Instead of manually calling / handling our own REST request / responses to the API, we can save some time and effort by using GitHub's official Ruby library, [OctoKit](http://octokit.github.io/octokit.rb/).
+Now that we finally have our access token, we can start acessing user data via the GitHub API. Instead of manually calling / handling our own REST request / responses to the API, we can save some time and effort by using GitHub's official Ruby library, [Octokit](http://octokit.github.io/octokit.rb/).
 
 First, we need initialize the Octokit client by passing it our access token `Octokit::Client.new(:access_token => access_token)`. After that, the user data associated with our `access_token` is available as `client.user`. We can now access any of the [user data properties](https://developer.github.com/v3/users/#get-the-authenticated-user) available from the v3 REST API.
 
@@ -227,8 +210,5 @@ The final result should look something like this:
 
 ## 5) Digging Deeper
 
-### Scopes
-So far, we've only been accessing public data. If you'd like to access private data for things like private emails, repositories or organization information, You'll need to request specific access to those items using [Scopes](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). It's also possible to reqeust additional permissions from a user at a later point in time. After adding additional permissions to your OAuth Application, your users will be prompted to approve the permission upgrade before you can access any additional user data from that user.
+TODO: Discuss challenges in working with scopes and token persistence, and how using GitHub Apps may be a better solution
 
-### Persisting Access Tokens
-Currently, users are required to **Sign In with GitHub** every time they visit your OAuth Application. It's possible to persist their access token to maintain their session as long as they're signed into GitHub. To do that, you'll need to save their access token to a database [DEGW: How should we handle this? This is a topic too big for this quickstart. Can we point them somewhere? We don't want to leave them hanging!!]
