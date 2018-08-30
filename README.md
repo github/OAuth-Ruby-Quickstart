@@ -1,6 +1,3 @@
-# GitHub OAuth Ruby Quickstart
-TODO: Link to introduction to GitHub OAuth article with an overview of the OAuth process, motivations behind using GitHub OAuth vs GitHub Apps, and links to this and other guides.
-
 ## About this Quickstart Guide
 This is a quickstart guide to GitHub OAuth authentication using:
 - Ruby
@@ -207,8 +204,3 @@ Now we just need to add in the erb partials in `profile.erb` to display the data
 
 The final result should look something like this:
 <img width="969" alt="complete" src="https://user-images.githubusercontent.com/3988879/41005787-bc465d10-68d3-11e8-8b96-eac7b78de8dc.png">
-
-## 5) Digging Deeper
-
-TODO: Discuss challenges in working with scopes and token persistence, and how using GitHub Apps may be a better solution
-
